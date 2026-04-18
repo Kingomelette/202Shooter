@@ -53,7 +53,7 @@ public class Shotgun : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("Enemy"))
                     {
-                        hit.collider.GetComponent<EnemyHealth>().TakeDamage(damage);
+                        hit.collider.GetComponent<CatAI>().TakeDamage(damage); ;
                     }
                 }
             }
