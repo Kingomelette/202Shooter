@@ -4,13 +4,13 @@ public class Projectile : MonoBehaviour
 {
     public float damage = 10f;
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.CompareTag("Player"))
+        // Deal damage if projectile hits the player, then destroy itself
+        if (other.CompareTag("Player"))
         {
-            collision.collider.GetComponent<PlayerHealth>().TakeDamage(damage);
+            other.GetComponentInParent<PlayerHealth>().TakeDamage(damage);
         }
-
         Destroy(gameObject);
     }
 }
